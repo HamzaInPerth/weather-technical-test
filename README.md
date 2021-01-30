@@ -8,6 +8,4 @@ npm run serve
 
 ### Demo
 
-```
 [link text itself]: https://meteo.hamzachikhi.me/
-```
