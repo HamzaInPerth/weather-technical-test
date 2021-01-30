@@ -1,25 +1,13 @@
-# meteo
-
-## Project setup
-```
-npm install
-```
+# Weather technical test
 
 ### Compiles and hot-reloads for development
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### Demo
 
-### Lints and fixes files
 ```
-npm run lint
+https://meteo.hamzachikhi.me/
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# weather-technical-test
