@@ -9,5 +9,5 @@ npm run serve
 ### Demo
 
 ```
-https://meteo.hamzachikhi.me/
+[link text itself]: https://meteo.hamzachikhi.me/
 ```
