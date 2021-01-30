@@ -8,6 +8,4 @@ npm run serve
 
 ### Demo
 
-See (https://meteo.hamzachikhi.me/)
-
-# weather-technical-test
+https://meteo.hamzachikhi.me/
