@@ -40,31 +40,39 @@ export default {
   methods: {
     // Check if the geo-location is activated (if not: reload page once activated)
     getWeatherInfos() {
-      navigator.permissions
-        .query({ name: "geolocation" })
-        .then((permissionStatus) => {
-          if (permissionStatus.state === "granted") {
-            this.geoLocationActived = true;
-            this.isLoading = true;
+      navigator.permissions.query({ name: "geolocation" }).then((result) => {
+        this.requestGeoLocation();
+        result.onchange = (response) => {
+          if (response.currentTarget.state === "granted") {
             this.requestGeoLocation();
           } else {
-            this.requestGeoLocation();
-            permissionStatus.onchange = function() {
-              if (this.state === "granted") {
-                document.location.reload();
-              }
-            };
+            this.isLoading = false;
+            this.geoLocationActived = false;
           }
-        });
+        };
+      });
     },
     // Execute XHR function with long. and lat. as parameters
     requestGeoLocation() {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.weatherRequest(
-          position.coords.longitude,
-          position.coords.latitude
-        );
-      });
+      this.geoLocationActived = true;
+      this.isLoading = true;
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          this.weatherRequest(
+            position.coords.longitude,
+            position.coords.latitude
+          );
+        },
+        (err) => {
+          alert(err.message);
+          this.geoLocationActived = false;
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0,
+        }
+      );
     },
     // Ajax call with longitude and latitude
     async weatherRequest(long, lat) {
