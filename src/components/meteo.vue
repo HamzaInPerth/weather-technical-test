@@ -66,11 +66,6 @@ export default {
         (err) => {
           alert(err.message);
           this.geoLocationActived = false;
-        },
-        {
-          enableHighAccuracy: true,
-          timeout: 5000,
-          maximumAge: 0,
         }
       );
     },
